@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'res/listData.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,93 +24,61 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
+  //自定义方法
+  // List<Widget> _getData() {
+  //   var list = <Widget>[];
+  //   for (var i = 0; i < 20; i++) {
+  //     list.add(ListTile(
+  //       title: Text("我是第${i + 1}个列表"),
+  //     ));
+  //   }
+  //   return list;
+  // }
+
+  // List<Widget> _getData() {
+  //   var tempList = listData.map((e) {
+  //     return ListTile(
+  //       leading: Image.network(e["imageUrl"]),
+  //       title: Text(e["title"]),
+  //       subtitle: Text(e["content"]),
+  //     );
+  //   });
+  //   return tempList.toList();
+  // }
+
+  List list = [];
+  HomeContent() {
+    // for (var i = 0; i < 20; i++) {
+    //   this.list.add(ListTile(
+    //         title: Text("我是第${i + 1}个列表"),
+    //       ));
+    // }
+  }
+
+  Widget _getListData(context, index) {
+    return ListTile(
+      title: Text(listData[index]["title"]),
+      subtitle: Text(listData[index]["content"]),
+      leading: Image.network(listData[index]["imageUrl"]),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    //padding: EdgeInsets.all(10),
-    // ignore: prefer_const_literals_to_create_immutables
+    // return ListView(
+    //   children: this._getData(),
+    // );
 
-    //垂直列表
-    // children: <Widget>[
-    //   ListTile(
-    //     leading: Icon(
-    //       Icons.settings,
-    //       color: Colors.yellow,
-    //       size: 40,
-    //     ),
-    //     title: Text(
-    //       "handsome little yuan yuan yuan",
-    //       style: TextStyle(fontSize: 18),
-    //     ),
-    //     subtitle: Text("yuan yuan yuan yuan yuan yuan yuan"),
-    //     trailing: Icon(Icons.abc),
-    //   ),
-    //   ListTile(
-    //     leading: Image.network("https://picsum.photos/id/237/200/200"),
-    //     title: Text("handsome little yuan yuan yuan"),
-    //     subtitle: Text("yuan yuan yuan yuan yuan yuan yuan"),
-    //     trailing: Image.network("https://picsum.photos/id/237/200/300"),
-    //   ),
-    //   ListTile(
-    //     leading: Icon(Icons.pages),
-    //     title: Text("handsome little yuan yuan yuan"),
-    //     subtitle: Text("yuan yuan yuan yuan yuan yuan yuan"),
-    //   )
-    // ],
+    // return ListView.builder(
+    //   itemCount: this.list.length,
+    //   itemBuilder: ((context, index) {
+    //     return this.list[index];
+    //   }),
+    // );
 
-    //垂直图文列表
-    // children: <Widget>[
-    //   Image.network("https://picsum.photos/id/237/500/500"),
-    //   Container(
-    //     child: Text(
-    //       "Title",
-    //       textAlign: TextAlign.center,
-    //       style: TextStyle(
-    //         fontSize: 18,
-    //       ),
-    //     ),
-    //     height: 40,
-    //     padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-    //   ),
-    //   Image.network("https://picsum.photos/id/237/500/500"),
-    //   Image.network("https://picsum.photos/id/237/500/500"),
-    //   Image.network("https://picsum.photos/id/237/500/500"),
-    //   Image.network("https://picsum.photos/id/237/500/500"),
-    // ],
-
-    //水平列表
-    return Container(
-      height: 180,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: <Widget>[
-          Container(
-            width: 180,
-            height: 180,
-            color: Colors.deepOrange,
-          ),
-          Container(
-            width: 180,
-            height: 180,
-            color: Colors.deepPurpleAccent,
-            child: ListView(
-              children: <Widget>[
-                Image.network("https://picsum.photos/id/237/100/100"),
-                Image.network("https://picsum.photos/id/237/100/100"),
-              ],
-            ),
-          ),
-          Container(
-            width: 180,
-            height: 180,
-            color: Colors.blue,
-          ),
-          Container(
-            width: 180,
-            height: 180,
-            color: Colors.pink,
-          )
-        ],
-      ),
+    return ListView.builder(
+      itemCount: listData.length,
+      itemBuilder: this._getListData,
     );
   }
 }
