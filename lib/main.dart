@@ -26,42 +26,43 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      // child: Container(
+      //   width: 300,
+      //   height: 300,
+      //   decoration: BoxDecoration(
+      //     color: Colors.yellow,
+      //     // borderRadius: BorderRadius.all(
+      //     //   Radius.circular(20),
+      //     // ),
+      //     borderRadius: BorderRadius.circular(150),
+      //     image: DecorationImage(
+      //       image: NetworkImage("https://picsum.photos/id/237/200/200"),
+      //       fit: BoxFit.cover,
+      //     ),
+      //   ),
+      //   // child: Image.network(
+      //   //   "https://picsum.photos/id/237/200/200",
+      //   //   alignment: Alignment.center,
+      //   //   // color: Colors.yellow,
+      //   //   // colorBlendMode: BlendMode.colorDodge,
+      //   //   // fit: BoxFit.cover,
+      //   //   // fit: BoxFit.contain,
+      //   //   // repeat: ImageRepeat.repeatX,
+      //   // ),
+      // ),
+
       child: Container(
-        child: Text(
-          "yuanyuanyuan",
-          overflow: TextOverflow.ellipsis,
-          // overflow: TextOverflow.fade,
-          maxLines: 1,
-          textScaleFactor: 2,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontSize: 16.0,
-            color: Colors.red,
-            fontStyle: FontStyle.italic,
-            decoration: TextDecoration.lineThrough,
-            decorationColor: Colors.white,
-            decorationStyle: TextDecorationStyle.dashed,
-            letterSpacing: 5.0,
+        width: 200,
+        height: 200,
+        child: ClipOval(
+          // child: Image.network(
+          //   "https://picsum.photos/id/237/200/200",
+          // ),
+          child: Image.asset(
+            "images/avatar.jpg",
+            fit: BoxFit.cover,
           ),
         ),
-        height: 300.0,
-        width: 300.0,
-        decoration: BoxDecoration(
-            color: Colors.yellow,
-            border: Border.all(
-              color: Colors.pink,
-              width: 2.0,
-            ),
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-              //Radius.circular(150) 圆形
-            )),
-        //padding: EdgeInsets.all(20),
-        padding: EdgeInsets.fromLTRB(10, 20, 50, 20),
-        //transform: Matrix4.translationValues(100, 0, 0),
-        //transform: Matrix4.rotationZ(0.3),
-        //transform: Matrix4.diagonal3Values(1.2, 1, 1),
-        alignment: Alignment.centerLeft,
       ),
     );
   }
