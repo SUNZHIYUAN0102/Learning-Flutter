@@ -16,115 +16,198 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter Demo"),
         ),
-        body: HomeContent(),
+        body: LayoutDemo(),
       ),
       theme: ThemeData(primarySwatch: Colors.yellow),
     );
   }
 }
 
-class HomeContent extends StatelessWidget {
-  // List<Widget> _getListData() {
-  //   List<Widget> list = [];
-  //   for (var i = 0; i < 20; i++) {
-  //     list.add(Container(
-  //       alignment: Alignment.center,
-  //       color: Colors.orange,
-  //       height: 400, //无法设置高度
-  //       child: Text(
-  //         "this is ${i + 1} item",
-  //         style: TextStyle(
-  //           color: Colors.white,
-  //           fontSize: 16,
-  //         ),
-  //       ),
-  //     ));
-  //   }
-  //   return list;
-  // }
+// class HomeContent extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // return Padding(
+//     //   padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+//     //   child: GridView.count(
+//     //     crossAxisCount: 2,
+//     //     children: <Widget>[
+//     //       Padding(
+//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+//     //         child: Image.network(
+//     //           "https://picsum.photos/id/237/200/200",
+//     //           fit: BoxFit.cover,
+//     //         ),
+//     //       ),
+//     //       Padding(
+//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+//     //         child: Image.network(
+//     //           "https://picsum.photos/id/238/200/200",
+//     //           fit: BoxFit.cover,
+//     //         ),
+//     //       ),
+//     //       Padding(
+//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+//     //         child: Image.network(
+//     //           "https://picsum.photos/id/239/200/200",
+//     //           fit: BoxFit.cover,
+//     //         ),
+//     //       ),
+//     //       Padding(
+//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+//     //         child: Image.network(
+//     //           "https://picsum.photos/id/240/200/200",
+//     //           fit: BoxFit.cover,
+//     //         ),
+//     //       ),
+//     //       Padding(
+//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+//     //         child: Image.network(
+//     //           "https://picsum.photos/id/241/200/200",
+//     //           fit: BoxFit.cover,
+//     //         ),
+//     //       ),
+//     //     ],
+//     //   ),
+//     // );
 
-  // List<Widget> _getListData() {
-  //   List<Widget> list = [];
-  //   list = listData.map((e) {
-  //     return Container(
-  //       child: Column(
-  //         children: [
-  //           Image.network(e["imageUrl"]),
-  //           SizedBox(
-  //             height: 10,
-  //           ),
-  //           Text(
-  //             e["title"],
-  //             textAlign: TextAlign.center,
-  //             style: TextStyle(
-  //               fontSize: 20,
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //       decoration: BoxDecoration(
-  //         border: Border.all(
-  //           color: Color.fromRGBO(233, 233, 233, .9),
-  //           width: 1,
-  //         ),
-  //       ),
-  //     );
-  //   }).toList();
-  //   return list;
-  // }
+//     return IconContainer(
+//       Icons.home,
+//       color: Colors.orange,
+//     );
+//   }
+// }
 
-  Widget _getListData(context, index) {
-    return Container(
-      child: Column(
-        children: [
-          Image.network(listData[index]["imageUrl"]),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            listData[index]["title"],
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 20,
-            ),
-          ),
-        ],
-      ),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Color.fromRGBO(233, 233, 233, .9),
-          width: 1,
-        ),
-      ),
-    );
-  }
+// class LayoutDemo extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     // return Container(
+//     //   width: 500,
+//     //   height: 500,
+//     //   color: Colors.red,
+//     //   child: Column(
+//     //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     //     crossAxisAlignment: CrossAxisAlignment.start,
+//     //     children: [
+//     //       IconContainer(
+//     //         Icons.home,
+//     //         color: Colors.pink,
+//     //       ),
+//     //       IconContainer(
+//     //         Icons.search,
+//     //         color: Colors.orange,
+//     //       ),
+//     //       IconContainer(
+//     //         Icons.timelapse,
+//     //         color: Colors.yellow,
+//     //       )
+//     //     ],
+//     //   ),
+//     // );
 
+//     return Row(
+//       children: [
+//         IconContainer(
+//           Icons.home,
+//           color: Colors.pink,
+//         ),
+//         Expanded(
+//           child: IconContainer(
+//             Icons.search,
+//             color: Colors.orange,
+//           ),
+//           flex: 2,
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+// class IconContainer extends StatelessWidget {
+//   double size;
+//   Color color;
+//   IconData icon;
+//   IconContainer(this.icon, {this.size = 32, this.color = Colors.red});
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       width: 50,
+//       height: 50,
+//       color: this.color,
+//       child: Center(
+//         child: Icon(
+//           this.icon,
+//           size: this.size,
+//           color: Colors.white,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // return GridView.count(
-    //   crossAxisCount: 2,
-    //   // children: <Widget>[
-    //   //   Text("this is str"),
-    //   //   Text("this is str"),
-    //   //   Text("this is str"),
-    //   // ],
-
-    //   crossAxisSpacing: 20,
-    //   mainAxisSpacing: 20,
-    //   padding: EdgeInsets.all(10),
-    //   childAspectRatio: 0.7,
-    //   children: _getListData(),
-    // );
-
-    return GridView.builder(
-      itemCount: listData.length,
-      itemBuilder: _getListData,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 0.7,
-        crossAxisSpacing: 10,
-        mainAxisSpacing: 10,
-      ),
+    return Column(
+      children: [
+        Container(
+          height: 200,
+          color: Colors.black,
+          alignment: Alignment.center,
+          margin: EdgeInsets.all(10),
+          child: Text(
+            "Hello, Flutter",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Container(
+                  height: 180,
+                  child: Image.network(
+                    "https://picsum.photos/id/237/400/200",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                flex: 2,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                child: Container(
+                    height: 180,
+                    child: ListView(
+                      children: [
+                        Container(
+                          height: 85,
+                          child: Image.network(
+                            "https://picsum.photos/id/238/400/200",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          height: 85,
+                          child: Image.network(
+                            "https://picsum.photos/id/239/400/200",
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    )),
+                flex: 1,
+              )
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
