@@ -24,61 +24,107 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeContent extends StatelessWidget {
-  //自定义方法
-  // List<Widget> _getData() {
-  //   var list = <Widget>[];
+  // List<Widget> _getListData() {
+  //   List<Widget> list = [];
   //   for (var i = 0; i < 20; i++) {
-  //     list.add(ListTile(
-  //       title: Text("我是第${i + 1}个列表"),
+  //     list.add(Container(
+  //       alignment: Alignment.center,
+  //       color: Colors.orange,
+  //       height: 400, //无法设置高度
+  //       child: Text(
+  //         "this is ${i + 1} item",
+  //         style: TextStyle(
+  //           color: Colors.white,
+  //           fontSize: 16,
+  //         ),
+  //       ),
   //     ));
   //   }
   //   return list;
   // }
 
-  // List<Widget> _getData() {
-  //   var tempList = listData.map((e) {
-  //     return ListTile(
-  //       leading: Image.network(e["imageUrl"]),
-  //       title: Text(e["title"]),
-  //       subtitle: Text(e["content"]),
+  // List<Widget> _getListData() {
+  //   List<Widget> list = [];
+  //   list = listData.map((e) {
+  //     return Container(
+  //       child: Column(
+  //         children: [
+  //           Image.network(e["imageUrl"]),
+  //           SizedBox(
+  //             height: 10,
+  //           ),
+  //           Text(
+  //             e["title"],
+  //             textAlign: TextAlign.center,
+  //             style: TextStyle(
+  //               fontSize: 20,
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //       decoration: BoxDecoration(
+  //         border: Border.all(
+  //           color: Color.fromRGBO(233, 233, 233, .9),
+  //           width: 1,
+  //         ),
+  //       ),
   //     );
-  //   });
-  //   return tempList.toList();
+  //   }).toList();
+  //   return list;
   // }
 
-  List list = [];
-  HomeContent() {
-    // for (var i = 0; i < 20; i++) {
-    //   this.list.add(ListTile(
-    //         title: Text("我是第${i + 1}个列表"),
-    //       ));
-    // }
-  }
-
   Widget _getListData(context, index) {
-    return ListTile(
-      title: Text(listData[index]["title"]),
-      subtitle: Text(listData[index]["content"]),
-      leading: Image.network(listData[index]["imageUrl"]),
+    return Container(
+      child: Column(
+        children: [
+          Image.network(listData[index]["imageUrl"]),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            listData[index]["title"],
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
+        ],
+      ),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color.fromRGBO(233, 233, 233, .9),
+          width: 1,
+        ),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    // return ListView(
-    //   children: this._getData(),
+    // return GridView.count(
+    //   crossAxisCount: 2,
+    //   // children: <Widget>[
+    //   //   Text("this is str"),
+    //   //   Text("this is str"),
+    //   //   Text("this is str"),
+    //   // ],
+
+    //   crossAxisSpacing: 20,
+    //   mainAxisSpacing: 20,
+    //   padding: EdgeInsets.all(10),
+    //   childAspectRatio: 0.7,
+    //   children: _getListData(),
     // );
 
-    // return ListView.builder(
-    //   itemCount: this.list.length,
-    //   itemBuilder: ((context, index) {
-    //     return this.list[index];
-    //   }),
-    // );
-
-    return ListView.builder(
+    return GridView.builder(
       itemCount: listData.length,
-      itemBuilder: this._getListData,
+      itemBuilder: _getListData,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 0.7,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
     );
   }
 }
