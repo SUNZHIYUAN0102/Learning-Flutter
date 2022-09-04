@@ -23,191 +23,101 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// class HomeContent extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return Padding(
-//     //   padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
-//     //   child: GridView.count(
-//     //     crossAxisCount: 2,
-//     //     children: <Widget>[
-//     //       Padding(
-//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-//     //         child: Image.network(
-//     //           "https://picsum.photos/id/237/200/200",
-//     //           fit: BoxFit.cover,
-//     //         ),
-//     //       ),
-//     //       Padding(
-//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-//     //         child: Image.network(
-//     //           "https://picsum.photos/id/238/200/200",
-//     //           fit: BoxFit.cover,
-//     //         ),
-//     //       ),
-//     //       Padding(
-//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-//     //         child: Image.network(
-//     //           "https://picsum.photos/id/239/200/200",
-//     //           fit: BoxFit.cover,
-//     //         ),
-//     //       ),
-//     //       Padding(
-//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-//     //         child: Image.network(
-//     //           "https://picsum.photos/id/240/200/200",
-//     //           fit: BoxFit.cover,
-//     //         ),
-//     //       ),
-//     //       Padding(
-//     //         padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-//     //         child: Image.network(
-//     //           "https://picsum.photos/id/241/200/200",
-//     //           fit: BoxFit.cover,
-//     //         ),
-//     //       ),
-//     //     ],
-//     //   ),
-//     // );
-
-//     return IconContainer(
-//       Icons.home,
-//       color: Colors.orange,
-//     );
-//   }
-// }
-
-// class LayoutDemo extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     // return Container(
-//     //   width: 500,
-//     //   height: 500,
-//     //   color: Colors.red,
-//     //   child: Column(
-//     //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//     //     crossAxisAlignment: CrossAxisAlignment.start,
-//     //     children: [
-//     //       IconContainer(
-//     //         Icons.home,
-//     //         color: Colors.pink,
-//     //       ),
-//     //       IconContainer(
-//     //         Icons.search,
-//     //         color: Colors.orange,
-//     //       ),
-//     //       IconContainer(
-//     //         Icons.timelapse,
-//     //         color: Colors.yellow,
-//     //       )
-//     //     ],
-//     //   ),
-//     // );
-
-//     return Row(
-//       children: [
-//         IconContainer(
-//           Icons.home,
-//           color: Colors.pink,
-//         ),
-//         Expanded(
-//           child: IconContainer(
-//             Icons.search,
-//             color: Colors.orange,
-//           ),
-//           flex: 2,
-//         ),
-//       ],
-//     );
-//   }
-// }
-
-// class IconContainer extends StatelessWidget {
-//   double size;
-//   Color color;
-//   IconData icon;
-//   IconContainer(this.icon, {this.size = 32, this.color = Colors.red});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       width: 50,
-//       height: 50,
-//       color: this.color,
-//       child: Center(
-//         child: Icon(
-//           this.icon,
-//           size: this.size,
-//           color: Colors.white,
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 200,
-          color: Colors.black,
-          alignment: Alignment.center,
-          margin: EdgeInsets.all(10),
-          child: Text(
-            "Hello, Flutter",
-            style: TextStyle(
-              color: Colors.white,
+    // return Center(
+    //   child: Stack(
+    //     alignment: Alignment(0, 0),
+    //     children: [
+    //       Container(
+    //         width: 400,
+    //         height: 300,
+    //         color: Colors.red,
+    //       ),
+    //       Text(
+    //         "this is str",
+    //         style: TextStyle(
+    //           fontSize: 40,
+    //           color: Colors.white,
+    //         ),
+    //       ),
+    //     ],
+    //   ),
+    // );
+
+    // return Center(
+    //   child: Container(
+    //     width: 300,
+    //     height: 400,
+    //     color: Colors.red,
+    //     child: Stack(
+    //       children: [
+    //         Align(
+    //           alignment: Alignment.center,
+    //           child: Icon(
+    //             Icons.home,
+    //             size: 40,
+    //             color: Colors.white,
+    //           ),
+    //         ),
+    //         Align(
+    //           alignment: Alignment.topLeft,
+    //           child: Icon(
+    //             Icons.search,
+    //             size: 30,
+    //             color: Colors.blue,
+    //           ),
+    //         ),
+    //         Align(
+    //           alignment: Alignment.bottomRight,
+    //           child: Icon(
+    //             Icons.sunny,
+    //             size: 60,
+    //             color: Colors.orange,
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
+
+    return Center(
+      child: Container(
+        width: 300,
+        height: 400,
+        color: Colors.red,
+        child: Stack(
+          children: [
+            Positioned(
+              left: 10,
+              child: Icon(
+                Icons.home,
+                size: 40,
+                color: Colors.white,
+              ),
             ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          child: Row(
-            children: [
-              Expanded(
-                child: Container(
-                  height: 180,
-                  child: Image.network(
-                    "https://picsum.photos/id/237/400/200",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                flex: 2,
+            Positioned(
+              left: 120,
+              top: 170,
+              child: Icon(
+                Icons.search,
+                size: 30,
+                color: Colors.blue,
               ),
-              SizedBox(
-                width: 10,
+            ),
+            Positioned(
+              right: 0,
+              bottom: 0,
+              child: Icon(
+                Icons.sunny,
+                size: 60,
+                color: Colors.orange,
               ),
-              Expanded(
-                child: Container(
-                    height: 180,
-                    child: ListView(
-                      children: [
-                        Container(
-                          height: 85,
-                          child: Image.network(
-                            "https://picsum.photos/id/238/400/200",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                          height: 85,
-                          child: Image.network(
-                            "https://picsum.photos/id/239/400/200",
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ],
-                    )),
-                flex: 1,
-              )
-            ],
-          ),
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
