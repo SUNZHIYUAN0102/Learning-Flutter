@@ -4,6 +4,10 @@ import '../pages/search.dart';
 import '../pages/tabs/tabs.dart';
 import '../pages/product.dart';
 import '../pages/productInfo.dart';
+import '../pages/User/login.dart';
+import '../pages/User/registerFirst.dart';
+import '../pages/User/registerSecond.dart';
+import '../pages/User/registerThird.dart';
 
 final routes = {
   "/": (context) => Tabs(),
@@ -15,6 +19,10 @@ final routes = {
   "/productInfo": (context, {arguments}) => ProductInfo(
         arguments: arguments,
       ),
+  "/login": (context) => LoginPage(),
+  "/registerFirst": (context) => RegisterFirstPage(),
+  "/registerSecond": (context) => RegisterSecondPage(),
+  "/registerThird": (context) => RegisterThirdPage(),
 };
 
 var onGenerateRoute = (RouteSettings settings) {
