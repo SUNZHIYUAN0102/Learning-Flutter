@@ -16,55 +16,77 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Flutter Demo"),
         ),
-        body: LayoutDemo(),
+        body: HomePage(),
       ),
       theme: ThemeData(primarySwatch: Colors.green),
     );
   }
 }
 
-class LayoutDemo extends StatelessWidget {
+// class HomePage extends StatefulWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   State<HomePage> createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+//   int num = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: [
+//         Chip(
+//           label: Text("Current Count: $num"),
+//         ),
+//         ElevatedButton(
+//           onPressed: () {
+//             setState(() { //只有有状态组件有
+//               num++;
+//             });
+//           },
+//           child: Text("Click"),
+//         )
+//       ],
+//     );
+//   }
+// }
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 400,
-      height: 600,
-      color: Colors.red,
-      child: Wrap(
-        direction: Axis.vertical,
-        spacing: 10,
-        runSpacing: 10,
-        alignment: WrapAlignment.center,
-        runAlignment: WrapAlignment.spaceBetween,
-        children: [
-          MyButton("第一季"),
-          MyButton("第一季, 第一季, 第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季"),
-          MyButton("第一季")
-        ],
-      ),
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
-class MyButton extends StatelessWidget {
-  String text;
-  MyButton(this.text);
+class _HomePageState extends State<HomePage> {
+  List list = [];
+
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {},
-      child: Text(
-        text,
-        style: TextStyle(color: Colors.white),
-      ),
+    return ListView(
+      children: [
+        Column(
+            children: list.map(
+          (value) {
+            return ListTile(
+              title: Text(value),
+            );
+          },
+        ).toList()),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              list.add("new str 1");
+              list.add("new str 2");
+            });
+          },
+          child: Text("Add one"),
+        )
+      ],
     );
   }
 }
