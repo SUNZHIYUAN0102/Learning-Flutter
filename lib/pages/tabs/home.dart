@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../search.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +13,10 @@ class _HomePageState extends State<HomePage> {
     return Column(
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/search", arguments: {"id": 666});
+            // Navigator.of(context).pushNamed("/search", arguments: {"id": 789});
+          },
           child: Text("To search page"),
         ),
         SizedBox(
@@ -22,10 +24,9 @@ class _HomePageState extends State<HomePage> {
         ),
         ElevatedButton(
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => SearchPage()));
+            Navigator.pushNamed(context, "/product");
           },
-          child: Text("To search page"),
+          child: Text("To product page"),
         ),
       ],
     );

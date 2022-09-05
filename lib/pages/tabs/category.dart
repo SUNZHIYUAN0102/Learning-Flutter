@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../form.dart';
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({super.key});
@@ -16,10 +15,7 @@ class _CategoryPageState extends State<CategoryPage> {
       children: [
         ElevatedButton(
           onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => FormPage(
-                      title: 'Hello, FormPage',
-                    )));
+            Navigator.pushNamed(context, "/form");
           },
           child: Text("To form page with parameters"),
         ),
